@@ -7,30 +7,14 @@ import React from 'react';
 
 // noinspection TypeScriptValidateJSTypes
 const useStyles = makeStyles((theme) => ({
-	logo: {
-		fontSize: '3rem',
-		marginRight: theme.spacing(2)
-	},
 	appBar: {
 		zIndex: theme.zIndex.drawer + 1,
 		backgroundColor: theme.palette.background.paper,
 		color: theme.palette.text.primary,
 		boxShadow: `0 ${theme.spacing(0.25)}px ${theme.spacing(
 			1
-		)}px 0 rgba(0, 0, 0, 0.2)`
-	},
-	appBarGridItem: {
-		margin: 'auto',
-		display: 'flex'
-	},
-	menuIconButton: {
-		[theme.breakpoints.up('sm')]: {
-			display: 'none'
-		}
-	},
-	navMenuContainer: {
-		display: 'flex',
-		justifyContent: 'flex-end'
+		)}px 0 rgba(0, 0, 0, 0.2)`,
+		paddingLeft: theme.spacing(2)
 	}
 }));
 
@@ -49,7 +33,7 @@ const NavBar = () => {
 			className={classes.appBar}
 		>
 			<Toolbar disableGutters>
-				<Typography variant="h6">Scroll to Elevate App Bar</Typography>
+				<Typography variant="h6">{'Broccoli & Co'}</Typography>
 			</Toolbar>
 		</AppBar>
 	);

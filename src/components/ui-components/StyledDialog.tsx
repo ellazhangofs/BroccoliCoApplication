@@ -35,7 +35,10 @@ const useStyles = makeStyles((theme) =>
 			display: 'flex'
 		},
 		styledDialogActions: {
-			paddingRight: theme.spacing(3)
+			paddingRight: theme.spacing(3),
+			paddingLeft: theme.spacing(3),
+			textAlign: 'center',
+			display: 'flex'
 		}
 	})
 );
