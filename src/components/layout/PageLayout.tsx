@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 	content: {
 		gridRowStart: '2',
 		gridRowEnd: '3',
-		overflow: 'hidden',
+		overflowY: 'auto',
+		overflowX: 'hidden',
 		display: 'flex'
 	},
 	footer: {

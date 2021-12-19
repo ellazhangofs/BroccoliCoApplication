@@ -1,25 +1,45 @@
-This project was created to demonstrate how to crate a reactJS application from scratch.
+This project was created to demonstrate a sign up page for Broccoli & Co application.
 
-the complete article can be found here
+# To view the website
 
-https://betterprogramming.pub/complete-guideline-to-creating-a-modern-react-app-with-typescript-from-scratch-cebbb5817d8
+go into the dist folder
+
+```
+cd dist
+```
+
+you can see bundle.js which includes the Javascript minified code
+
+copy the path of index.html and view it in a browser
 
 # To run the project
 
 go into the root folder
 
 ```
-cd react-typescript-template-from-scratch
+cd BroccoliCoApplication
 ```
 
 Then install the dependencies
 
 ```
-yarn install
+npm run install
 ```
 
 and run the project
 
 ```
-yarn start
+npm run start
+```
+
+To run the unit tests
+
+```
+npm run test
+```
+
+To build the project
+
+```
+npm run build
 ```

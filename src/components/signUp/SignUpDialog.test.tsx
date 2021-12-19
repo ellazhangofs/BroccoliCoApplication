@@ -138,7 +138,7 @@ describe('SignUpDialog', () => {
 	});
 
 	it('submits the sign up dialog successfully', async () => {
-		(signUp as jest.Mock).mockResolvedValue('ok');
+		(signUp as jest.Mock).mockResolvedValue({ status: 200 });
 
 		const wrapper = createWrapper();
 		const name = 'fakeUser';
@@ -161,7 +161,9 @@ describe('SignUpDialog', () => {
 	});
 
 	it('displays error if failing to sign up', async () => {
-		const error = { message: 'invalid request' };
+		const error = {
+			response: { data: { errorMessage: 'invalid request' } }
+		};
 		(signUp as jest.Mock).mockRejectedValue(error);
 
 		const wrapper = createWrapper();
@@ -187,6 +189,6 @@ describe('SignUpDialog', () => {
 		);
 		expect(
 			wrapper.find(StyledDialog).dive().find(Typography).at(1).text()
-		).toEqual(error.message);
+		).toEqual(error.response?.data?.errorMessage);
 	});
 });

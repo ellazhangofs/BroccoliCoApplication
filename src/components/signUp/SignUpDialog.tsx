@@ -84,6 +84,7 @@ const SignUpDialog = ({ setIsSuccessDialogOpen }: Props) => {
 		setName(undefined);
 		setEmail(undefined);
 		setConfirmEmail(undefined);
+		setErrorMessage(undefined);
 		setIsOpen(false);
 	};
 
@@ -102,27 +103,23 @@ const SignUpDialog = ({ setIsSuccessDialogOpen }: Props) => {
 	};
 
 	const onSubmit = () => {
-		console.log('clicks');
-
-		if (name && email) {
+		if (name && email && !Validate.disableSubmit(validationStateMap)) {
 			setIsSubmitting(true);
 			signUp(name, email)
-				.then(() => {
-					console.log('ishere');
-					onCloseClick();
-					console.log('before click');
-					setIsSuccessDialogOpen(true);
+				.then((response: any) => {
+					if (response.status === 200) {
+						onCloseClick();
+						setIsSuccessDialogOpen(true);
+					}
 				})
 				.catch((e) => {
-					console.log(e);
-					setErrorMessage(e.message);
+					setErrorMessage(e?.response?.data?.errorMessage);
 				})
 				.finally(() => {
 					setIsSubmitting(false);
 				});
 		}
 	};
-	console.log(errorMessage);
 
 	const content = (
 		<>
@@ -159,7 +156,7 @@ const SignUpDialog = ({ setIsSuccessDialogOpen }: Props) => {
 						id="confirmEmail"
 						required
 						value={confirmEmail ?? ''}
-						label={'Confirm Email address'}
+						label={'Confirm email'}
 						variant="outlined"
 						onChange={onConfirmEmailChange}
 						error={
